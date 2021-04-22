@@ -7,8 +7,8 @@ class AnswerWidget extends StatelessWidget {
   final bool isSelected;
 
   const AnswerWidget({
-    Key key,
-    this.title,
+    Key? key,
+    required this.title,
     this.isRight = false,
     this.isSelected = false,
   }) : super(key: key);

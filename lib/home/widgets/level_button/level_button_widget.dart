@@ -5,9 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 class LevelButtonWidget extends StatelessWidget {
   final String label;
   LevelButtonWidget({
-    Key key,
-    this.label,
-  })  : assert(["Fácil", "Médio", "Difícil", "Perito"].contains(label)),
+    Key? key,
+    required this.label,
+  })   : assert(["Fácil", "Médio", "Difícil", "Perito"].contains(label)),
         super(key: key);
 
   final config = {
@@ -33,9 +33,9 @@ class LevelButtonWidget extends StatelessWidget {
     },
   };
 
-  Color get color => config[label]['color'];
-  Color get borderColor => config[label]['borderColor'];
-  Color get fontColor => config[label]['fontColor'];
+  Color get color => config[label]!['color']!;
+  Color get borderColor => config[label]!['borderColor']!;
+  Color get fontColor => config[label]!['fontColor']!;
 
   @override
   Widget build(BuildContext context) {

@@ -7,7 +7,11 @@ class QuizCardWidget extends StatelessWidget {
   final String completed;
   final double percent;
 
-  const QuizCardWidget({Key key, this.title, this.completed, this.percent})
+  const QuizCardWidget(
+      {Key? key,
+      required this.title,
+      required this.completed,
+      required this.percent})
       : super(key: key);
 
   @override
