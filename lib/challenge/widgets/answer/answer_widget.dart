@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 class AnswerWidget extends StatelessWidget {
   final AnswerModel answer;
   final bool isSelected;
+  final bool disabled;
   final VoidCallback onTap;
 
   const AnswerWidget({
     Key? key,
     required this.answer,
     required this.onTap,
+    this.disabled = false,
     this.isSelected = false,
   }) : super(key: key);
 
@@ -35,51 +37,56 @@ class AnswerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          padding: EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: isSelected ? _selectedColorCardRight : AppColors.white,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.fromBorderSide(
-              BorderSide(
-                  color:
-                      isSelected ? _selectedBorderCardRight : AppColors.border),
-            ),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Text(
-                  answer.title,
-                  style:
-                      isSelected ? _selectedTextStyleRight : AppTextStyles.body,
-                ),
+      child: IgnorePointer(
+        ignoring: disabled,
+        child: GestureDetector(
+          onTap: onTap,
+          child: Container(
+            padding: EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: isSelected ? _selectedColorCardRight : AppColors.white,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.fromBorderSide(
+                BorderSide(
+                    color: isSelected
+                        ? _selectedBorderCardRight
+                        : AppColors.border),
               ),
-              Container(
-                decoration: BoxDecoration(
-                  color: isSelected ? _selectedColorRight : AppColors.white,
-                  borderRadius: BorderRadius.circular(500),
-                  border: Border.fromBorderSide(
-                    BorderSide(
-                        color: isSelected
-                            ? _selectedBorderRight
-                            : AppColors.border),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    answer.title,
+                    style: isSelected
+                        ? _selectedTextStyleRight
+                        : AppTextStyles.body,
                   ),
                 ),
-                width: 24,
-                height: 24,
-                child: isSelected
-                    ? Icon(
-                        _selectedIconRight,
-                        size: 16,
-                        color: AppColors.white,
-                      )
-                    : null,
-              ),
-            ],
+                Container(
+                  decoration: BoxDecoration(
+                    color: isSelected ? _selectedColorRight : AppColors.white,
+                    borderRadius: BorderRadius.circular(500),
+                    border: Border.fromBorderSide(
+                      BorderSide(
+                          color: isSelected
+                              ? _selectedBorderRight
+                              : AppColors.border),
+                    ),
+                  ),
+                  width: 24,
+                  height: 24,
+                  child: isSelected
+                      ? Icon(
+                          _selectedIconRight,
+                          size: 16,
+                          color: AppColors.white,
+                        )
+                      : null,
+                ),
+              ],
+            ),
           ),
         ),
       ),
