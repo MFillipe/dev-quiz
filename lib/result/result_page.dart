@@ -1,8 +1,20 @@
 import 'package:DevQuiz/challenge/widgets/next_button/next_button_widget.dart';
 import 'package:DevQuiz/core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ResultPage extends StatelessWidget {
+  final String title;
+  final int length;
+  final int result;
+
+  const ResultPage(
+      {Key? key,
+      required this.title,
+      required this.length,
+      required this.result})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,10 +41,9 @@ class ResultPage extends StatelessWidget {
                         style: AppTextStyles.body,
                         children: [
                           TextSpan(
-                              text: "\n Gerenciamento de Estado",
-                              style: AppTextStyles.bodyBold),
+                              text: "\n $title", style: AppTextStyles.bodyBold),
                           TextSpan(
-                              text: "\n com 6 de 10 acertos.",
+                              text: "\n com $result de $length acertos.",
                               style: AppTextStyles.body),
                         ]),
                     textAlign: TextAlign.center),
@@ -46,7 +57,11 @@ class ResultPage extends StatelessWidget {
                         child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 68),
                       child: NextButtonWidget.purple(
-                          label: "Compartilhar", onTap: () {}),
+                          label: "Compartilhar",
+                          onTap: () {
+                            Share.share(
+                                'DevQuiz Flutter: Resultado do Quiz: $title\nObtive: ${result / length} de aproveitamento!');
+                          }),
                     )),
                   ],
                 ),
