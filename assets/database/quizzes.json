@@ -1,28 +1,39 @@
 [
    {
 
-        "title": "NLW 5 Flutter",
+        "title": "Gerenciamento de Estado",
         "imagem": "blocks",
         "questionAnswered": 1,
         "level": "facil",
         "questions": [{
-            "title": "Está curtindo o Flutter?",
+            "title": "O que o Flutter faz em sua totalidade?",
             "answers": [
-                {"title": "Estou curtindo"},
-                {"title": "Amando Flutter"},
-                {"title": "Muito top"},
-                {"title": "Show de bola",
-                "isRight": true}  
+                {"title": "Kit de desenvolvimento de interface de usuário"},
+                {"title": "Possibilita a criação de aplicativos compilados nativamente",
+                    "isRight": true},
+                {"title": "Marca de café do Himalaia"},
+                {"title": "Possibilita a criação de desktops que são muito incríveis"}  
             ] 
         }, {
             
-            "title": "Está curtindo o Flutter?",
+            "title": "Qual linguagem é utilizada no Flutter?",
             "answers": [
-                {"title": "Estou curtindo"},
-                {"title": "Amando Flutter"},
-                {"title": "Muito top"},
-                {"title": "Show de bola",
-                "isRight": true}  
+                {"title": "JavaScript"},
+                {"title": "Java"},
+                {"title": "Dart", 
+                    "isRight": true},
+                {"title": "SQL"}  
+            ] 
+        }, {
+            
+            "title": "Qual empresa fundou o Flutter?",
+            "answers": [
+                {"title": "Google",
+                    "isRight": true
+                },
+                {"title": "Facebook"},
+                {"title": "Uber"},
+                {"title": "Microsoft"}  
             ] 
         }
     ]
